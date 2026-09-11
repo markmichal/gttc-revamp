@@ -19,11 +19,49 @@
     <div class="wrap">
       <div class="crumb"><a href="index.html">Home</a> / <strong>Contact Us</strong></div>
       <h1>Contact Us</h1>
+      <p>Thanks for reaching out. We love to hear from this community and we&rsquo;re constantly making changes based on your ideas.</p>
     </div>
   </section>
   <section class="pad">
+    <span class="wf-tag">Contact form</span>
     <div class="wrap prose">
-      <p class="muted"><strong>This page has no body content on the live site.</strong> Left empty deliberately rather than filled with invented copy.</p>
+      <p class="muted"><strong>Wireframe only &mdash; this form does nothing.</strong> It mirrors the fields on the live site&rsquo;s form so the page can be reviewed and rearranged. Nothing is sent or stored anywhere.</p>
+      <form class="wf-form" onsubmit="return false;" aria-label="Contact form (wireframe, inactive)">
+        <div class="row2">
+          <label>First<input type="text" autocomplete="off"></label>
+          <label>Last<input type="text" autocomplete="off"></label>
+        </div>
+        <label>Email *<input type="email" autocomplete="off"></label>
+        <label>I am a
+          <select>
+            <option>&hellip;</option>
+            <option>High School Student</option>
+            <option>College Student</option>
+            <option>School Official</option>
+            <option>Youth Leader</option>
+            <option>Parent of Teenagers</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label>I have a
+          <select>
+            <option>&hellip;</option>
+            <option>Question</option>
+            <option>Suggestion</option>
+            <option>Thought about the Site</option>
+            <option>Resource for You to Share</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label>Share your thoughts below *<textarea rows="6"></textarea></label>
+        <fieldset>
+          <legend>Would you like a response?</legend>
+          <label class="inline"><input type="radio" name="reply"> Yes</label>
+          <label class="inline"><input type="radio" name="reply"> No</label>
+        </fieldset>
+        <p class="muted">The live form also takes a file upload and shows a CAPTCHA here.</p>
+        <button class="btn-y" type="button" disabled>Submit</button>
+      </form>
     </div>
   </section>
 </main>
