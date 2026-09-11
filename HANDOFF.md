@@ -1,6 +1,6 @@
 # HANDOFF — Go to the Campus revamp wireframe
 
-Written 2026-09-11. Last updated 2026-09-11. Read this first, then `CLAUDE.md` for the
+Written 2026-09-11. Last updated 2026-09-11 (taglines audit). Read this first, then `CLAUDE.md` for the
 build spec.
 
 **Keeping this file current (Mark's convention, agreed 2026-09-11).** This is not a
@@ -37,8 +37,11 @@ told the tradeoff. It is still reachable by anyone with the link.
 | Embedded videos | 49 across 41 pages |
 | Articles with the live site's hand-picked "More to Explore" | 87 |
 | Section pages with photo headers | 30 |
+| Section pages carrying the live site's one-line tagline | 25 of 25 (21 restored 2026-09-11) |
+| Pages wrongly labelled "no content on the live site" | 0 (was 8) |
+| Live "Next Step" / CTA blocks present | 57 of 57 (55 still unstyled — see next steps) |
 | Broken links / broken images / empty thumbnails | 0 |
-| Commits on `main` | 35 |
+| Commits on `main` | 40 |
 
 ### The files that matter
 
@@ -65,6 +68,18 @@ scraping the rendered page loses most of the text. An early round of this projec
 exactly that and produced thin, half-invented pages — the testimony article came out at
 284 words against the real 2,026. The whole site was rebuilt from the API afterwards.
 
+**And read the API tag-agnostically.** Elementor keeps a lot of text in *widgets* that
+render as `<div>`, not as `<p>` or `<h1>`–`<h6>`:
+
+```
+<div class="elementor-heading-title">Learn to pray for your campus…</div>
+<span class="elementor-cta__description">Download our Discussion Guide…</span>
+```
+
+A scan that looks for paragraph and heading **tags** finds nothing and concludes the page
+is empty. That is exactly what happened — see section 3, "The missing taglines". Strip all
+tags and keep every text node instead.
+
 Three things are **not** in the API and need the live DOM:
 
 1. **Video URLs.** Elementor stores them in a `data-settings` JSON blob with escaped
@@ -86,9 +101,69 @@ on Share Your Faith.
 
 - **Every page is real content from the live site.** Nothing invented. Where the live
   site has nothing, the page says so rather than being padded.
-- **14 articles are near-empty stubs** (offsite or video-only entries with no body text
-  anywhere — not in the API, not in the rendered page, not in Elementor data). Those
-  pages state this openly.
+- **18 articles are genuinely near-empty stubs** (offsite or video-only entries with no
+  body text anywhere — not in the API, not in the rendered page, not in Elementor data).
+  Those pages state this openly. That count is now verified; see below for the eight that
+  were wrongly in this group.
+
+### The missing taglines — found and fixed 2026-09-11
+
+The single biggest fidelity gap found so far, and the reason to trust the audit over the
+original import.
+
+**Every section landing page on the live site carries a one-line intro under its title**
+("Learn to pray for your campus and gather others to do the same."). **21 of them had no
+tagline at all in our clone.** The four top-level hubs — Join, Lead, Launch, Stories —
+*did* have theirs, which is precisely why the gap went unnoticed for so long: the pattern
+looked present.
+
+Cause: the div-widget blind spot in section 2. The original extraction searched for
+paragraph and heading tags. The API had the text the whole time.
+
+The same blind spot produced **eight pages wrongly labelled "This page has no body content
+on the live site"** when the live pages have real content:
+
+| Page | What was actually there |
+|---|---|
+| Contact Us | intro line + a full contact form |
+| Snapshot Cards | headline, sentence, "Check out Soularium" button |
+| Fundraising, Graduating Seniors, Personal Discipleship, Special Situations, Weekly Meetings | a real tagline each |
+| How to Meet Students and Build Relationships | a "Next Step" box |
+
+All 162 API items were then re-checked tag-agnostically, so this is now a closed set
+rather than a guess. Taglines are inserted verbatim as `<p>` after the hero `<h1>`,
+matching the markup the four hub pages already use — `.page-hero p` styles them, no CSS
+change needed.
+
+**The five Lead pages are not empty, their grids are.** Fundraising, Graduating Seniors,
+Personal Discipleship, Special Situations and Weekly Meetings each have a real tagline;
+what is empty is the article grid, which returns "No results found" on the live page
+itself. Their on-page note now says that instead of claiming the page has no content.
+
+### Rulings from 2026-09-11 (Mark approved all five)
+
+- **Snapshot Cards rebuilt.** Its header image is a marketing banner with its own headline
+  baked into the artwork ("snapshot is now Soularium"). As a `.page-hero.photo` background
+  it was cover-cropped, dimmed by the hero gradient, and had our white `<h1>` laid over it,
+  so the artwork's "Soularium" collided with our page title — two competing headlines. It
+  now uses `.article-lead` / `.article-lead-img`, which is a 2.25:1 band against the
+  banner's native 2.28:1, so it shows essentially whole with nothing on top. **Deliberate
+  deviation:** the live page has no `<h1>` and no breadcrumb; ours keeps both so the page
+  stays navigable, using the live site's own headline as the title.
+- **Contact Us has a facsimile form.** Fields mirror the live Gravity Form so the page has
+  its real bulk on screen for rearranging. **It is deliberately inert** — no `action`, an
+  `onsubmit` that returns false, a disabled submit button, and a note on the page saying
+  so. **Do not wire it up.** A working form here would collect real people's messages with
+  nowhere to send them. The `.wf-form` CSS it uses was already in `styles.css`, written for
+  this and never used by any page.
+- **Developing Student Leaders gained an 11th card** (Involving Students in Evangelism) to
+  match the live page. Note the tradeoff: our section grids are taxonomy-driven, and that
+  article is **not** tagged `developing-student-leaders` — our page was following the tags
+  correctly; the live page hand-picks it. If the grids are ever regenerated from the
+  taxonomy the card will vanish again.
+- **Hero crops verified** (the old next step #1). Working with Adults is fine — all seven
+  faces keep eyes and smiles under the default centre crop. Snapshot Cards' crop was also
+  fine; its problem was the overlaid-text collision above, not the framing.
 - **"More to Explore"** replaced an earlier invented "More in *Image Article*" section.
   The live site hand-picks companions per article; 87 articles now carry their real
   trio. **41 have an empty carousel on the live site** — those keep same-section
@@ -153,6 +228,17 @@ Worth passing to the web team:
 5. **Promote Your Ministry** is the page title; its slug is `social-media-and-promotion`.
 6. The Lead landing page has **no Large Group Outreaches tile** (nav only) but **does**
    have Opportunities Subscription.
+7. **A dangling "Other Resources on" heading** appears on many section pages with the
+   section name missing — the name is injected dynamically and comes out blank, so the
+   live page reads "Other Resources on" and stops. Our clone drops the heading entirely,
+   per Mark's earlier ruling that the word sets up nothing for the reader.
+8. **Five Lead sections have completely empty article grids** — Fundraising, Graduating
+   Seniors, Personal Discipleship, Special Situations, Weekly Meetings. Both the grid and
+   the carousel return "No results found" on the live pages. Each has a written tagline
+   and nothing beneath it, so the pages look unfinished.
+9. **Typo on Promote Your Ministry:** "Find great designs and Ideas for promoting your
+   ministry." — mid-sentence capital on *Ideas*. Kept verbatim in our clone, since body
+   copy is left as Cru wrote it.
 
 ---
 
@@ -200,7 +286,21 @@ Scans that walk forward from a heading must stop at the "Give us feedback" block
 
 **5. Section hero `background-position` is per-page and deliberate.** Don't normalise it.
 
-**6. Check for an existing block before adding one.** 87 articles were shipping *two*
+**6. "The live site has nothing here" is a claim to verify, not inherit.**
+Eight pages carried a confident on-page note saying the live site had no content, and all
+eight were wrong (section 3). The note had been generated by the same tag-based scan that
+caused the error, so it read as evidence when it was really just the bug restating itself.
+Before trusting any such note, re-check the API tag-agnostically.
+
+**7. Spaces in the repo path break the local preview.**
+`~/Documents/MY DOCUMENTS/…` contains spaces, and
+`python3 -m http.server --directory "<path with spaces>"` silently serves the wrong
+directory — every request 404s while the server looks healthy. A symlink to a space-free
+path does not fix it either. What works: copy the `.html`/`.css`/`.js` files into a
+space-free folder and serve that, re-copying after edits. Images are hotlinked so they
+still load. (Entry `gttc-revamp` in `~/.claude/launch.json`, port 8766.)
+
+**8. Check for an existing block before adding one.** 87 articles were shipping *two*
 identical "More to Explore" sections: when the live site's hand-picked companions were
 added, the original related-cards block was never removed, so the same three cards
 rendered twice in a row. Mark caught it in the browser on 2026-09-11; all 87 pairs were
@@ -228,17 +328,33 @@ one. Every article now carries exactly one — assert that if you touch this are
 
 ## 7. Next steps
 
-Nothing is in flight. Candidates, roughly in order of value:
+Nothing is in flight. **Two decisions are waiting on Mark** (items 1 and 2); the rest are
+open candidates, roughly in order of value.
 
-1. **Check the two unverified hero crops** (Working with Adults, Snapshot Cards).
-2. **Rearranging** — the actual point of the wireframe. Tick "Show section labels" in the
+1. **Awaiting ruling — tidy up the 55 "Next Step" boxes.** 57 live articles have one. Two
+   were missing and have been added properly. The other **55 are present but came through
+   the original import as bare text nodes** inside `.prose` — no wrapper element, so they
+   pick up no styling and carry a run of stray blank lines above them. They render as
+   untidy loose text instead of the distinct box the live site shows. Wrapping them as
+   `<h3>Next Step</h3>` + `<p>` uses existing prose styles and needs no new CSS, but it is
+   a visible change across 55 pages, so it wants Mark's go-ahead. Keep it to one commit.
+2. **Awaiting ruling — two pieces still thinner than live.**
+   - The five **Learn** pages each repeat an eyebrow, "TO CONNECT WITH STUDENTS", plus
+     "This section is for student leaders and field volunteers working directly with
+     students. We want you to be equipped to do these five things…". We have the section
+     selector but not this blurb.
+   - **Launch**'s Playbook block is missing "Your guide to starting and growing a ministry
+     at your school" and a "Learn More about the Playbook" link.
+3. **Rearranging** — the actual point of the wireframe. Tick "Show section labels" in the
    prototype bar to reveal `.wf-tag` handles on every section, then decide what moves,
-   merges, or goes. That work was always meant to start once the clone was faithful.
-3. **Hand the six live-site findings** in section 3 to the web team.
-4. If this becomes a longer-lived artefact, **bring the images local** so it stops
+   merges, or goes. **Now genuinely unblocked:** the 21 missing taglines were content Mark
+   would have been rearranging around without ever seeing it.
+4. **Hand the live-site findings** in section 3 to the web team — now nine, not six.
+5. If this becomes a longer-lived artefact, **bring the images local** so it stops
    depending on the live WordPress library.
 
-*(Section-heading casing was next on this list and is now settled — see section 3.)*
+*(Section-heading casing and the two unverified hero crops were both on this list and are
+now settled — see section 3.)*
 
 ---
 
