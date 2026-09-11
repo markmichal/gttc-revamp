@@ -24,11 +24,11 @@
       { label: "Conferences and Retreats", href: "conferences-and-retreats.html" },
       { label: "International Missions", href: "international-missions.html" },
       { label: "Working with Adults", href: "working-with-adults.html" },
-      { label: "Promote Your Ministry", href: "promote-your-ministry.html" }
+      { label: "Social Media and Promotion", href: "promote-your-ministry.html" }
     ]},
     { label: "Launch", href: "launch.html", children: [
-      { label: "The Coaching Center", href: "the-coaching-center.html" },
-      { label: "The Launch Box", href: "the-launch-box.html" }
+      { label: "The Coaching Center", href: "launch.html#the-coaching-center" },
+      { label: "The Launch Box", href: "launch.html#the-launch-box" }
     ]},
     { label: "Join", href: "join.html" }
   ];

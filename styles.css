@@ -206,3 +206,16 @@ footer .fbottom{margin-top:32px;padding-top:18px;border-top:1px solid #242424;fo
 @media (max-width:640px){
   .tools,.tilegrid,.cardgrid,.stats{grid-template-columns:1fr;} .cta::before{background:rgba(20,22,24,.72);}
 }
+
+/* Wireframe contact form */
+.wf-form{display:flex;flex-direction:column;gap:16px;max-width:640px;}
+.wf-form label{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:.9rem;color:var(--slate);}
+.wf-form label.inline{flex-direction:row;align-items:center;gap:8px;font-weight:400;}
+.wf-form input[type=text],.wf-form input[type=email],.wf-form select,.wf-form textarea{
+  font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:3px;background:#fff;color:var(--text);}
+.wf-form input:focus,.wf-form select:focus,.wf-form textarea:focus{outline:3px solid var(--yellow);outline-offset:1px;}
+.wf-form .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.wf-form fieldset{border:1px solid var(--line);border-radius:3px;padding:12px 16px;display:flex;gap:20px;align-items:center;}
+.wf-form legend{font-weight:600;font-size:.9rem;padding:0 6px;color:var(--slate);}
+.wf-form button{align-self:flex-start;}
+@media (max-width:640px){.wf-form .row2{grid-template-columns:1fr;}}
