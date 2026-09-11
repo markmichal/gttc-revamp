@@ -6,13 +6,15 @@
   --slate:#383F43; --slate-d:#2c3236; --yellow:#FFD000; --white:#fff;
   --text:#383F43; --muted:#5c666b; --line:#e2e2e2; --paper-alt:#f6f5f2;
   --maxw:1180px; --f:"Inter",system-ui,sans-serif;
+  /* Cru brand: Sora is the primary typeface (ExtraBold for headlines); Inter is the secondary, for body copy */
+  --f-display:"Sora","Inter",system-ui,sans-serif;
   /* Base URL for real photography pulled from the live site */
   --img-base:"https://campus.cru.org/high-school/go-to-the-campus/wp-content/uploads/sites/563/";
 }
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{margin:0;font-family:var(--f);color:var(--text);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased;}
-h1,h2,h3,h4{font-family:var(--f);margin:0;line-height:1.08;color:var(--slate);}
+h1,h2,h3,h4{font-family:var(--f-display);font-weight:800;margin:0;line-height:1.08;color:var(--slate);}
 p{margin:0 0 1rem;}
 a{color:inherit;}
 img{max-width:100%;display:block;}
@@ -310,3 +312,13 @@ footer .fbottom{margin-top:32px;padding-top:18px;border-top:1px solid #242424;fo
   .article-head h1{border-left-width:6px;padding-left:14px;}
   .article-head .crumb{padding-left:20px;}
 }
+
+/* ---- Cru brand typography (Sora for headlines and high-level UI) ---- */
+.h-sec,.eyebrow span,.navlink,
+.btn-y,.btn-s,.btn-o,
+.acard h3,.tile h3,.coll h3,.way h3,
+.pillar .txt .t,.stat .n,.article-head h1{font-family:var(--f-display);}
+.article-head h1,.h-sec,.eyebrow span:first-child{font-weight:800;}
+.navlink{font-weight:700;}
+/* Sora runs slightly wider than Inter; nudge tracking back on the big headlines */
+h1,.h-sec,.article-head h1{letter-spacing:-0.015em;}

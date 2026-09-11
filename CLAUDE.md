@@ -12,8 +12,11 @@ pull the **real copy** from the matching live URL — never invent placeholder t
 ---
 
 ## Design system (do not drift)
-- **Fonts:** Inter everywhere. Headings 800–900, body 400. (The live site uses Inter for
-  display headings, not Sora — match the site.)
+- **Fonts:** Cru brand typography — **Sora** (ExtraBold 800) for headlines, section titles,
+  nav and buttons; **Inter** for body copy. This is a deliberate deviation from the live site,
+  which uses Source Sans Pro for display headings and Inter for body. The brand brief lists
+  Sora as fixed primary. (Note: the live site already loads Sora but its heading stack reads
+  `"Source Sans Pro", Sora-serif` — `Sora-serif` is not a real family, so Sora never applies.)
 - **Colors:** slate `#383F43` (header, footer, dark sections, headings), yellow `#FFD000`
   (accents, buttons, rules), white, light `#f6f5f2`. All tokens live in `:root` in `styles.css`.
 - **Buttons:** rectangular, uppercase, letter-spaced — `.btn-y` (yellow), `.btn-s` (slate),
