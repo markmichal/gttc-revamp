@@ -289,3 +289,21 @@ footer .fbottom{margin-top:32px;padding-top:18px;border-top:1px solid #242424;fo
   .snav-l{font-size:.74rem;}
 }
 @media (max-width:420px){.sectionnav{grid-template-columns:repeat(2,1fr);}}
+
+/* ---- Article page header (image on top, title beneath) ---- */
+.article-lead{padding:0;background:#fff;position:relative;}
+.article-lead .wrap{padding-top:0;padding-bottom:0;}
+.article-lead-img{width:100%;height:auto;max-height:520px;object-fit:cover;display:block;margin:0;}
+.article-head{background:#fff;padding:34px 0 6px;position:relative;}
+.article-head h1{font-weight:900;text-transform:uppercase;color:var(--slate);
+  font-size:clamp(1.6rem,3.4vw,2.6rem);line-height:1.06;
+  border-left:8px solid var(--yellow);padding-left:20px;}
+.article-head .crumb{margin-top:14px;padding-left:28px;}
+.crumb{font-size:.76rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);}
+.crumb a{color:var(--muted);text-decoration:none;}
+.crumb a:hover{color:var(--slate);}
+.article-head + .pad{padding-top:26px;}
+@media (max-width:640px){
+  .article-head h1{border-left-width:6px;padding-left:14px;}
+  .article-head .crumb{padding-left:20px;}
+}
