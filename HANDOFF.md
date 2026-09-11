@@ -41,7 +41,6 @@ told the tradeoff. It is still reachable by anyone with the link.
 | Pages wrongly labelled "no content on the live site" | 0 (was 8) |
 | Live "Next Step" / CTA blocks present | 57 of 57 (55 still unstyled — see next steps) |
 | Broken links / broken images / empty thumbnails | 0 |
-| Commits on `main` | 42 |
 
 ### The files that matter
 
