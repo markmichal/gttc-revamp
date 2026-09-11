@@ -26,6 +26,24 @@ pull the **real copy** from the matching live URL — never invent placeholder t
   handles are review tools, injected/handled by `site.js`. Leave them in; they toggle off via
   the "Show section labels" checkbox. Strip them only when we move toward production.
 
+## Content source (IMPORTANT — read before adding pages)
+All content comes from the live WordPress REST API, **not** from scraping rendered HTML:
+
+    https://campus.cru.org/high-school/go-to-the-campus/wp-json/wp/v2/posts?per_page=50&page=N
+    https://campus.cru.org/high-school/go-to-the-campus/wp-json/wp/v2/pages?per_page=50
+
+`content.rendered` holds the full article body. Scraping the rendered Elementor page
+loses most of the text — that mistake produced an earlier round of thin, half-invented
+pages. Use the API.
+
+- `class_list` on each post carries the real taxonomy as `page_categories-<slug>`.
+  That is how section pages know which articles belong to them, including the numbered
+  step groups on `share-your-faith` (`1-start-a-spiritual-conversation` … `7-…`).
+- 18 posts have a genuinely empty body on the live site (offsite/video stubs). Those pages
+  say so explicitly. **Do not fill them with invented copy.**
+- Two slugs exist as both a page and a post (`developing-student-leaders`,
+  `international-missions`); the post gets an `article-` prefix.
+
 ## Architecture (how the site is wired)
 - **`styles.css`** — one shared stylesheet, linked by every page. Edit design here, once.
 - **`site.js`** — injects the prototype bar, header/nav, and footer on every page, and wires
@@ -47,18 +65,16 @@ pull the **real copy** from the matching live URL — never invent placeholder t
 5. **Content listing** — see `content.html`: `.page-hero` + `.filterbar` chips + `.cardgrid` (cards carry `data-card="category"`).
 6. **Blank skeleton** — `_template.html` to start any new page.
 
-## Pages to create (from the live nav)
-Already built: `index.html`, `learn.html`, `share-your-faith.html`, `article.html`,
-`content.html`, `_template.html`.
+## Current state (complete)
+All 128 articles and 30 section pages are built — 161 HTML files. Every internal link
+resolves; there are no placeholder pages left.
 
-Still to build (slugs must match `site.js` NAV):
-- **Learn:** understand-cru, relate-to-students, lead-a-small-group, meet-the-parents
-- **Lead** (landing `lead.html` + subs): planning, large-group-outreaches, prayer,
-  developing-student-leaders, conferences-and-retreats, international-missions,
-  working-with-adults, promote-your-ministry
-- **Launch** (landing `launch.html` + subs): the-coaching-center, the-launch-box
-- **Standalone:** join, contact, stories, why-go-to-the-campus, why-reach-teenagers
-- **Sample articles:** ~4–6 more, duplicated from `article.html` with real content.
+Known deviations from the live site, all deliberate:
+- `The Coaching Center` / `The Launch Box` are anchor sections on `launch.html`, matching
+  the live site (they are not separate pages there).
+- `Promote Your Ministry` is the live page title; its slug is `social-media-and-promotion`.
+  The file uses the slug, the nav uses the title.
+- `_template.html` is intentionally unlinked.
 
 ## Getting real content
 1. Open the live homepage and read its nav to get the **actual URL** for each page above

@@ -24,7 +24,7 @@
       { label: "Conferences and Retreats", href: "conferences-and-retreats.html" },
       { label: "International Missions", href: "international-missions.html" },
       { label: "Working with Adults", href: "working-with-adults.html" },
-      { label: "Social Media and Promotion", href: "promote-your-ministry.html" }
+      { label: "Promote Your Ministry", href: "social-media-and-promotion.html" }
     ]},
     { label: "Launch", href: "launch.html", children: [
       { label: "The Coaching Center", href: "launch.html#the-coaching-center" },
@@ -58,7 +58,7 @@
 
   function footerHTML() {
     var links = NAV.map(function (i) { return '<a href="' + i.href + '">' + i.label + '</a>'; }).join("") +
-      '<a href="content.html">All Content</a><a href="contact.html">Contact Us</a><a href="#">Staff Only</a>';
+      '<a href="content.html">All Content</a><a href="contact-us.html">Contact Us</a><a href="#">Staff Only</a>';
     return '<footer class="site"><div class="wrap"><div class="top"><div>' + CRU_SVG +
       '<p style="color:#8a8a8a;font-size:.85rem;max-width:320px;margin-top:14px;">Cru High School Ministry — helping caring adults reach students on the public high school campus.</p></div>' +
       '<div class="flinks">' + links + '</div>' +
