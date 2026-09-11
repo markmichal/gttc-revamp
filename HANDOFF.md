@@ -1,6 +1,16 @@
 # HANDOFF — Go to the Campus revamp wireframe
 
-Written 2026-09-11. Read this first, then `CLAUDE.md` for the build spec.
+Written 2026-09-11. Last updated 2026-09-11. Read this first, then `CLAUDE.md` for the
+build spec.
+
+**Keeping this file current (Mark's convention, agreed 2026-09-11).** This is not a
+changelog — git already records what changed and why, and a second running log would only
+drift from it. Record here what the commit log cannot carry: decisions and the reasoning
+behind them, approaches tried and rejected, gotchas, current state, and what is next.
+Rhythm: capture a ruling in the commit message immediately (so nothing is lost if a
+session ends abruptly), then fold it into this file at natural stopping points. A ruling
+that took real back-and-forth to reach gets written in straight away rather than waiting.
+Routine execution of an already-recorded decision does not need an entry.
 
 ---
 
@@ -28,7 +38,7 @@ told the tradeoff. It is still reachable by anyone with the link.
 | Articles with the live site's hand-picked "More to Explore" | 87 |
 | Section pages with photo headers | 30 |
 | Broken links / broken images / empty thumbnails | 0 |
-| Commits on `main` | 31 |
+| Commits on `main` | 35 |
 
 ### The files that matter
 
@@ -105,6 +115,23 @@ on Share Your Faith.
   the real section path from the taxonomy. Image, title, breadcrumb and body all align to
   the same **712px** text column. Lead images are cropped to a **2.25:1** band
   (two-thirds of their previous height) from the centre.
+- **Section-heading casing — settled 2026-09-11.** Page `<h1>`s were already sentence
+  case; the `<h2 class="h-sec">` section headings were not. Mark's rulings:
+  - `More to Explore` → **More to explore** (215 headings across 128 articles).
+  - `Other Ways to Join Us` → **Other ways to join us**.
+  - `Our Favorite Coaching Center Resources` → **Our favorite Coaching Center resources**
+    — *Coaching Center* stays capitalised as a named programme, consistent with the
+    earlier ruling.
+  - `Resources on <Section Name>` on the 16 section pages → first shortened to
+    **Resources**, then **removed entirely**. Mark's reasoning: the word sets up nothing
+    and does not help the reader, and the page `<h1>` immediately above already names the
+    section. The sections keep their `.wf-tag` handles so they remain grabbable when
+    rearranging.
+  - **The 7 numbered steps on Share Your Faith keep title case** — Mark's explicit
+    decision to leave them for now.
+  - **`.wf-tag` labels were deliberately left in title case**, per the existing rule that
+    prototype tooling is not brand content. A blind find-and-replace would have caught
+    them; restrict heading edits to `<h2 class="h-sec">`.
 - **Section headers** are 300px tall photos. The live site uses 550px; 300px was chosen
   to match Mark's preference for less vertical space. 13 of them carry a custom
   `background-position` because the default centre crop cut people's faces off.
@@ -173,6 +200,13 @@ Scans that walk forward from a heading must stop at the "Give us feedback" block
 
 **5. Section hero `background-position` is per-page and deliberate.** Don't normalise it.
 
+**6. Check for an existing block before adding one.** 87 articles were shipping *two*
+identical "More to Explore" sections: when the live site's hand-picked companions were
+added, the original related-cards block was never removed, so the same three cards
+rendered twice in a row. Mark caught it in the browser on 2026-09-11; all 87 pairs were
+verified byte-identical before one was deleted. The 41 fallback articles only ever had
+one. Every article now carries exactly one — assert that if you touch this area again.
+
 ---
 
 ## 6. Known issues and unfinished pieces
@@ -182,9 +216,6 @@ Scans that walk forward from a heading must stop at the "Give us feedback" block
 - **Two YouTube videos are dead** (`UrmypdukU7A`, `3dGuN57R0Ek`) — broken on the live
   site too. Those pages say so and link out.
 - **Soularium has no header image.** Correct: the live page has none.
-- **Mixed casing on section headings.** Page `<h1>`s are sentence case, but section
-  headings still use WordPress titles in title case — e.g. "Developing student leaders"
-  above "Resources on Developing Student Leaders". Flagged to Mark; not yet decided.
 - **`.wf-tag` review labels keep their capitals** — deliberate, they are prototype
   tooling rather than brand content.
 - **`_template.html` is intentionally unlinked.**
@@ -199,14 +230,15 @@ Scans that walk forward from a heading must stop at the "Give us feedback" block
 
 Nothing is in flight. Candidates, roughly in order of value:
 
-1. **Decide the section-heading casing** so the site reads in one voice.
-2. **Check the two unverified hero crops** (Working with Adults, Snapshot Cards).
-3. **Rearranging** — the actual point of the wireframe. Tick "Show section labels" in the
+1. **Check the two unverified hero crops** (Working with Adults, Snapshot Cards).
+2. **Rearranging** — the actual point of the wireframe. Tick "Show section labels" in the
    prototype bar to reveal `.wf-tag` handles on every section, then decide what moves,
    merges, or goes. That work was always meant to start once the clone was faithful.
-4. **Hand the six live-site findings** in section 3 to the web team.
-5. If this becomes a longer-lived artefact, **bring the images local** so it stops
+3. **Hand the six live-site findings** in section 3 to the web team.
+4. If this becomes a longer-lived artefact, **bring the images local** so it stops
    depending on the live WordPress library.
+
+*(Section-heading casing was next on this list and is now settled — see section 3.)*
 
 ---
 
