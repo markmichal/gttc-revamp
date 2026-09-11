@@ -322,3 +322,8 @@ footer .fbottom{margin-top:32px;padding-top:18px;border-top:1px solid #242424;fo
 .navlink{font-weight:700;}
 /* Sora runs slightly wider than Inter; nudge tracking back on the big headlines */
 h1,.h-sec,.article-head h1{letter-spacing:-0.015em;}
+
+/* Opt-in: article title in natural capitalisation instead of all caps.
+   Add class="article-head title-natural" to a page to preview it.
+   To roll out sitewide, drop `text-transform:uppercase` from .article-head h1 instead. */
+.article-head.title-natural h1{text-transform:none;letter-spacing:-0.02em;}
