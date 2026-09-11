@@ -293,6 +293,9 @@ footer .fbottom{margin-top:32px;padding-top:18px;border-top:1px solid #242424;fo
 /* ---- Article page header (image on top, title beneath) ---- */
 .article-lead{padding:0;background:#fff;position:relative;}
 .article-lead .wrap{padding-top:0;padding-bottom:0;}
+/* Article lead image + header match the article body column (.prose = 760px) */
+.article-lead .wrap,
+.article-head .wrap{max-width:calc(760px + 48px);}
 .article-lead-img{width:100%;height:auto;max-height:520px;object-fit:cover;display:block;margin:0;}
 .article-head{background:#fff;padding:34px 0 6px;position:relative;}
 .article-head h1{font-weight:900;text-transform:uppercase;color:var(--slate);
