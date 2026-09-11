@@ -230,3 +230,8 @@ footer .fbottom{margin-top:32px;padding-top:18px;border-top:1px solid #242424;fo
   padding-bottom:3px;margin:0 0 16px;}
 .prose img{margin:20px 0;}
 .prose h3{font-size:1.15rem;font-weight:700;margin:22px 0 8px;}
+
+/* Video caption under an embed */
+.vidcap{font-size:.86rem;color:var(--muted);margin:-8px 0 22px;}
+.vidcap a{color:var(--slate);font-weight:600;}
+.vidcap a:hover{color:#000;}
