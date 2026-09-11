@@ -23,7 +23,7 @@ img{max-width:100%;display:block;}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition:none!important;}}
 
 /* ---------- Buttons ---------- */
-.btn-y,.btn-o,.btn-s{display:inline-block;font-weight:700;font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;text-decoration:none;padding:14px 26px;border-radius:2px;cursor:pointer;border:2px solid;}
+.btn-y,.btn-o,.btn-s{display:inline-block;font-weight:700;font-size:.78rem;letter-spacing:.02em;text-decoration:none;padding:14px 26px;border-radius:2px;cursor:pointer;border:2px solid;}
 .btn-y{background:var(--yellow);color:var(--slate);border-color:var(--yellow);}
 .btn-y:hover{background:var(--slate);color:var(--yellow);border-color:var(--slate);}
 .btn-o{background:transparent;color:#fff;border-color:#fff;}
@@ -50,7 +50,7 @@ body.labels header.site{top:27px;}
 nav.primary{margin-left:24px;}
 nav.primary ul{list-style:none;display:flex;gap:2px;margin:0;padding:0;}
 nav.primary > ul > li{position:relative;}
-.navlink{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:.9rem;letter-spacing:.05em;text-transform:uppercase;color:#fff;text-decoration:none;padding:10px 14px;background:none;border:none;cursor:pointer;}
+.navlink{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:.9rem;letter-spacing:.01em;color:#fff;text-decoration:none;padding:10px 14px;background:none;border:none;cursor:pointer;}
 .navlink:hover{color:var(--yellow);}
 .navlink .caret{font-size:9px;opacity:.8;}
 .submenu{position:absolute;left:0;top:100%;min-width:250px;background:#fff;border-top:3px solid var(--yellow);box-shadow:0 16px 36px rgba(0,0,0,.22);padding:6px;display:none;}
@@ -65,7 +65,7 @@ nav.primary li:hover > .submenu,nav.primary li:focus-within > .submenu{display:b
 section{position:relative;}
 .pad{padding:60px 0;}
 .alt{background:var(--paper-alt);}
-.kicker{font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--muted);margin-bottom:.5rem;}
+.kicker{font-weight:800;letter-spacing:.03em;font-size:.8rem;color:var(--muted);margin-bottom:.5rem;}
 .h-sec{font-weight:900;font-size:clamp(1.7rem,3.4vw,2.6rem);}
 .muted{color:var(--muted);}
 .lead-p{font-size:1.08rem;max-width:660px;color:var(--muted);}
@@ -73,7 +73,7 @@ section{position:relative;}
 
 /* ---------- Interior page hero / breadcrumb (sub-pages & articles) ---------- */
 .page-hero{background:var(--slate);color:#fff;padding:54px 0 48px;}
-.page-hero .crumb{font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;color:#aeb5b8;margin-bottom:12px;}
+.page-hero .crumb{font-size:.8rem;letter-spacing:.04em;color:#aeb5b8;margin-bottom:12px;}
 .page-hero .crumb a{color:var(--yellow);text-decoration:none;}
 .page-hero h1{color:#fff;font-weight:900;font-size:clamp(2rem,4.4vw,3.2rem);}
 .page-hero p{color:#d7dbdd;max-width:680px;margin:14px 0 0;font-size:1.08rem;}
@@ -104,7 +104,7 @@ section{position:relative;}
 
 /* ---------- Featured / content card slider + grid ---------- */
 .feat{padding:54px 0 60px;}
-.feat-banner{background:var(--slate);color:#fff;padding:16px 26px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;font-size:1.15rem;}
+.feat-banner{background:var(--slate);color:#fff;padding:16px 26px;font-weight:800;letter-spacing:.06em;font-size:1.15rem;}
 .slider{position:relative;margin-top:26px;}
 .track{display:flex;gap:22px;overflow-x:auto;scroll-behavior:smooth;padding:6px 2px 14px;scrollbar-width:thin;}
 .cardgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:26px;}
@@ -114,7 +114,7 @@ section{position:relative;}
 .acard .thumb{height:170px;background:#e9e7e2 center/cover no-repeat;position:relative;}
 .acard.video .thumb::after{content:"\25B6";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:30px;background:rgba(0,0,0,.28);}
 .acard .b{padding:18px 20px 22px;display:flex;flex-direction:column;}
-.acard .cat{font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.acard .cat{font-size:.72rem;font-weight:800;letter-spacing:.02em;color:var(--muted);margin-bottom:6px;}
 .acard h3{font-size:1.02rem;font-weight:700;line-height:1.2;}
 .acard .u{width:38px;height:3px;background:var(--yellow);margin:12px 0;}
 .acard p{font-size:.88rem;color:var(--muted);margin:0;}
@@ -124,7 +124,7 @@ section{position:relative;}
 
 /* ---------- Content-listing filter bar ---------- */
 .filterbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;}
-.chip{font-weight:700;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;padding:9px 16px;border:2px solid var(--slate);border-radius:999px;background:#fff;color:var(--slate);cursor:pointer;}
+.chip{font-weight:700;font-size:.78rem;letter-spacing:.05em;padding:9px 16px;border:2px solid var(--slate);border-radius:999px;background:#fff;color:var(--slate);cursor:pointer;}
 .chip.active,.chip:hover{background:var(--slate);color:#fff;}
 
 /* ---------- Homepage: hero / pillars / stats / stories (from v3) ---------- */
@@ -132,22 +132,22 @@ section{position:relative;}
 .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.15),rgba(0,0,0,0) 45%,rgba(0,0,0,.15));}
 .hero .cut{position:absolute;bottom:-1px;left:0;width:100%;height:150px;background:#fff;clip-path:polygon(0 0,100% 62%,100% 100%,0 100%);z-index:2;}
 .hero .headline{position:absolute;z-index:3;right:max(24px,calc((100% - var(--maxw))/2 + 24px));top:50%;transform:translateY(-58%);text-align:right;color:#fff;}
-.hero .headline h1{color:#fff;font-weight:800;text-transform:uppercase;font-size:clamp(1.9rem,4.2vw,3.15rem);}
+.hero .headline h1{color:#fff;font-weight:800;font-size:clamp(1.9rem,4.2vw,3.15rem);}
 .hero .rule{width:78px;height:4px;background:var(--yellow);margin:18px 0 18px auto;}
-.hero .headline .help{font-weight:800;text-transform:uppercase;font-size:clamp(1.3rem,2.6vw,2rem);color:#fff;}
+.hero .headline .help{font-weight:800;font-size:clamp(1.3rem,2.6vw,2rem);color:#fff;}
 .pillars-wrap{position:relative;z-index:5;margin-top:-64px;}
 .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
 .pillar{display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--slate);color:#fff;text-decoration:none;padding:22px 26px;min-height:96px;}
 .pillar:hover{background:var(--slate-d);}
-.pillar .txt .t{font-weight:800;font-size:1.9rem;line-height:1;color:var(--yellow);text-transform:uppercase;}
-.pillar .txt .s{font-weight:600;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;margin-top:6px;color:#fff;}
+.pillar .txt .t{font-weight:800;font-size:1.9rem;line-height:1;color:var(--yellow);}
+.pillar .txt .s{font-weight:600;font-size:.74rem;letter-spacing:.06em;margin-top:6px;color:#fff;}
 .pillar img{width:52px;height:52px;object-fit:contain;flex:none;}
 .pillar.lead{margin-top:12px;}
 .pillar.launch{margin-top:24px;}
 .cta{position:relative;background-size:cover;background-position:center;background-repeat:no-repeat;}
 .cta::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,22,24,.82) 0%,rgba(20,22,24,.6) 42%,rgba(20,22,24,0) 72%);}
 .cta .inner{position:relative;z-index:2;max-width:520px;padding:74px 0;}
-.cta h2{color:var(--yellow);text-transform:uppercase;font-weight:800;font-size:clamp(1.7rem,3.2vw,2.5rem);}
+.cta h2{color:var(--yellow);font-weight:800;font-size:clamp(1.7rem,3.2vw,2.5rem);}
 .cta p{color:#fff;font-size:1.05rem;margin:1.1rem 0 1.6rem;}
 .cta .btns{display:flex;flex-direction:column;gap:12px;align-items:flex-start;}
 .yellowband{background:var(--yellow);}
@@ -164,7 +164,7 @@ section{position:relative;}
 .tool img{height:118px;width:auto;margin:0 auto 16px;object-fit:contain;}
 .tool h3{font-weight:700;font-size:1.1rem;}
 .tool p{font-size:.9rem;color:var(--muted);margin:8px auto 12px;max-width:280px;}
-.tool a{font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--slate);border-bottom:3px solid var(--yellow);padding-bottom:2px;}
+.tool a{font-weight:700;font-size:.78rem;letter-spacing:.02em;text-decoration:none;color:var(--slate);border-bottom:3px solid var(--yellow);padding-bottom:2px;}
 .coll-head{display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
 .coll-head img{height:82px;width:auto;}
 .stories{background:var(--slate);color:#fff;}
@@ -185,7 +185,7 @@ footer .top{display:flex;justify-content:space-between;align-items:flex-start;ga
 .cru-mark{width:118px;}
 .cru-mark path,.cru-mark polygon{fill:#fff!important;}
 footer .flinks{display:flex;gap:24px;flex-wrap:wrap;}
-footer .flinks a{color:#ddd;text-decoration:none;text-transform:uppercase;letter-spacing:.04em;font-weight:600;font-size:.8rem;}
+footer .flinks a{color:#ddd;text-decoration:none;letter-spacing:.01em;font-weight:600;font-size:.8rem;}
 footer .flinks a:hover{color:var(--yellow);}
 .fsearch{display:flex;align-items:center;gap:8px;background:#161616;border:1px solid #333;border-radius:3px;padding:9px 16px;color:#888;font-size:.85rem;}
 footer .fbottom{margin-top:32px;padding-top:18px;border-top:1px solid #242424;font-size:.78rem;color:#7d7d7d;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
@@ -228,7 +228,7 @@ footer .fbottom{margin-top:32px;padding-top:18px;border-top:1px solid #242424;fo
 
 /* Article category label */
 .prose .cat{display:inline-block;font-weight:700;font-size:.72rem;letter-spacing:.09em;
-  text-transform:uppercase;color:var(--muted);border-bottom:3px solid var(--yellow);
+  color:var(--muted);border-bottom:3px solid var(--yellow);
   padding-bottom:3px;margin:0 0 16px;}
 .prose img{margin:20px 0;}
 .prose h3{font-size:1.15rem;font-weight:700;margin:22px 0 8px;}
@@ -241,15 +241,15 @@ footer .fbottom{margin-top:32px;padding-top:18px;border-top:1px solid #242424;fo
 /* Section eyebrow (LEAD / A MINISTRY pattern from the live site) */
 .eyebrow{display:flex;flex-direction:column;gap:2px;margin-bottom:14px;}
 .eyebrow span:first-child{font-weight:900;font-size:clamp(1.6rem,3vw,2.3rem);line-height:1;
-  letter-spacing:.02em;text-transform:uppercase;color:var(--yellow);}
-.eyebrow span:last-child{font-weight:700;font-size:.78rem;letter-spacing:.1em;
-  text-transform:uppercase;color:#fff;opacity:.9;}
+  letter-spacing:.02em;color:var(--yellow);}
+.eyebrow span:last-child{font-weight:700;font-size:.78rem;letter-spacing:.03em;
+  color:#fff;opacity:.9;}
 .page-hero:not(.photo) .eyebrow span:last-child{color:var(--muted);opacity:1;}
 .eyebrow.dark span:first-child{color:var(--slate);}
 .eyebrow.dark span:last-child{color:var(--muted);}
 
 /* "COMING SOON" note under the Lead tiles */
-.comingsoon{margin-top:26px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+.comingsoon{margin-top:26px;font-weight:800;letter-spacing:.03em;
   font-size:.8rem;color:var(--muted);text-align:center;}
 
 /* Two-up card grid */
@@ -300,11 +300,11 @@ footer .fbottom{margin-top:32px;padding-top:18px;border-top:1px solid #242424;fo
 .article-head .wrap{max-width:760px;}
 .article-lead-img{width:100%;height:auto;aspect-ratio:2.25/1;object-fit:cover;object-position:center center;display:block;margin:0;}
 .article-head{background:#fff;padding:34px 0 6px;position:relative;}
-.article-head h1{font-weight:900;text-transform:uppercase;color:var(--slate);
+.article-head h1{font-weight:900;color:var(--slate);
   font-size:clamp(1.6rem,3.4vw,2.6rem);line-height:1.06;
   border-left:8px solid var(--yellow);padding-left:20px;}
 .article-head .crumb{margin-top:14px;padding-left:28px;}
-.crumb{font-size:.76rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);}
+.crumb{font-size:.76rem;font-weight:700;letter-spacing:.07em;color:var(--muted);}
 .crumb a{color:var(--muted);text-decoration:none;}
 .crumb a:hover{color:var(--slate);}
 .article-head + .pad{padding-top:26px;}
@@ -323,11 +323,3 @@ footer .fbottom{margin-top:32px;padding-top:18px;border-top:1px solid #242424;fo
 /* Sora runs slightly wider than Inter; nudge tracking back on the big headlines */
 h1,.h-sec,.article-head h1{letter-spacing:-0.015em;}
 
-/* Opt-in: article title in natural capitalisation instead of all caps.
-   Add class="article-head title-natural" to a page to preview it.
-   To roll out sitewide, drop `text-transform:uppercase` from .article-head h1 instead. */
-.article-head.title-natural h1{text-transform:none;letter-spacing:-0.02em;}
-/* Sentence case preview. CSS-only, so it lowercases proper nouns too —
-   fine for titles without any, not safe to roll out sitewide. */
-.article-head.title-sentence h1{text-transform:lowercase;letter-spacing:-0.02em;}
-.article-head.title-sentence h1::first-letter{text-transform:uppercase;}
