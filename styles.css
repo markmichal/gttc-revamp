@@ -327,3 +327,7 @@ h1,.h-sec,.article-head h1{letter-spacing:-0.015em;}
    Add class="article-head title-natural" to a page to preview it.
    To roll out sitewide, drop `text-transform:uppercase` from .article-head h1 instead. */
 .article-head.title-natural h1{text-transform:none;letter-spacing:-0.02em;}
+/* Sentence case preview. CSS-only, so it lowercases proper nouns too —
+   fine for titles without any, not safe to roll out sitewide. */
+.article-head.title-sentence h1{text-transform:lowercase;letter-spacing:-0.02em;}
+.article-head.title-sentence h1::first-letter{text-transform:uppercase;}
